@@ -30,7 +30,7 @@ app.use(errorHandler);
 module.exports = {
   server: app,
   start: (port) => {
-    app.listen(port, () => {
+    app.listen(port, '127.0.0.1', () => {
       console.log(`Server Up on ${port}`);
     });
   },

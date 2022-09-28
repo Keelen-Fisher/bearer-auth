@@ -1,9 +1,9 @@
 'use strict';
 
-process.env.SECRET = "TEST_SECRET";
+process.env.SECRET = 'TEST_SECRET';
 
-const { db } = require('../../../../../src/auth/models');
-const { handleSignup } = require('../../../../../src/auth/router/handlers.js');
+const { db } = require('../../../src/auth/models');
+const { handleSignup } = require('../../../src/auth/router/handlers.js');
 
 beforeAll(async () => {
   await db.sync();
