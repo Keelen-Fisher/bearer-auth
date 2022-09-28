@@ -27,3 +27,7 @@
 Created with [miro](https://miro.com/app/board/uXjVPVbmw2E=/)
 
 - UML for lab 07: ![UML](UML%20Draft%20for%20Lab%2007.png)
+
+- Diagram below created from Stephen Clemmer:
+
+- Lab 07 Routing: ![Lab07](Lab%207%20Routing.png)

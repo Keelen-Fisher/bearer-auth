@@ -10,7 +10,7 @@ describe('testing the users route handler', () => {
     send: jest.fn(() => res),
     status: jest.fn(() => res),
     json: jest.fn(() => res),
-  }
+  };
   const next = jest.fn();
 
   test('Should respond with a secret response', () => {
