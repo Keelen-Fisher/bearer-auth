@@ -8,11 +8,15 @@
 
 - `basic-auth.test`
 
+- `bearer-auth-middle`
+
 - `500.test`
 
 - `npm test`
 
 - `/signin`
+
+- `POST and GET`
 
 - Deployed Site:
 
