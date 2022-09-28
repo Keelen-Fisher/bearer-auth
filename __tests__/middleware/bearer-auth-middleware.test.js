@@ -27,7 +27,7 @@ describe('Auth Middleware', () => {
     status: jest.fn(() => res),
     send: jest.fn(() => res),
     json: jest.fn(() => res),
-  }
+  };
   const next = jest.fn();
 
   describe('user authentication', () => {

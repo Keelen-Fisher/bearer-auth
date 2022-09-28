@@ -26,8 +26,8 @@ describe('testing the Signup Handler', () => {
     let req = {
       body: {
         username: 'test',
-        password: 'test'
-      }
+        password: 'test',
+      },
     };
 
     await handleSignup(req, res, next);
@@ -35,8 +35,8 @@ describe('testing the Signup Handler', () => {
     expect(res.json).toHaveBeenCalledWith(
       expect.objectContaining({
         user: expect.any(Object),
-        token: expect.any(String)
-      })
+        token: expect.any(String),
+      }),
     );
   });
 

@@ -4,6 +4,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+require('dotenv').config();
 
 // Esoteric Resources
 const errorHandler = require('./error-handlers/500.js');
@@ -12,6 +13,8 @@ const authRouter = require('./auth/router/index.js');
 
 // Prepare the express app
 const app = express();
+
+const PORT = process.env.PORT || 3002;
 
 // App Level MW
 app.use(cors());
@@ -29,9 +32,9 @@ app.use(errorHandler);
 
 module.exports = {
   server: app,
-  start: (port) => {
-    app.listen(port, '127.0.0.1', () => {
-      console.log(`Server Up on ${port}`);
+  start: () => {
+    app.listen(PORT, '127.0.0.1', () => {
+      console.log(`Server Up on ${PORT}`);
     });
   },
 };
