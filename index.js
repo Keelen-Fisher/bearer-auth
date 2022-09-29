@@ -7,5 +7,6 @@ db.sync()
 
     // Start the web server
     require('./src/server.js').start(process.env.PORT);
+    console.log('-------------------------------');
   });
 

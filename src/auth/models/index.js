@@ -10,6 +10,7 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 
 const DATABASE_CONFIG = process.env.NODE_ENV === 'production'
   ? {
+    
     dialectOptions: {
       ssl:
       {
@@ -17,7 +18,7 @@ const DATABASE_CONFIG = process.env.NODE_ENV === 'production'
         rejectUnauthorized: false,
       },
     },
-  } : {};
+  } : {logging: false};
 
 const sequelize = new Sequelize(DATABASE_URL, DATABASE_CONFIG);
 
