@@ -12,19 +12,19 @@ const userSchema = (sequelize, DataTypes) => {
     token: {
       type: DataTypes.VIRTUAL,
       get() {
-        return jwt.sign({ username: this.username }, SECRET, { expiresIn: '2400000' });
+        return jwt.sign({ username: this.username }, SECRET, { expiresIn: (1000 * 60 * 15) });
       },
     },
   });
 
   model.beforeCreate(async (user) => {
-    let hashedPass = bcrypt.hash(user.password, 10);
+    let hashedPass = await bcrypt.hash(user.password, 10);
     user.password = hashedPass;
   });
 
   // Basic AUTH: Validating strings (username, password) 
   model.authenticateBasic = async function (username, password) {
-    const user = await this.findOne({ username });
+    const user = await this.findOne({ where: {username} });
     const valid = await bcrypt.compare(password, user.password);
     if (valid) {
       return user;
@@ -33,10 +33,10 @@ const userSchema = (sequelize, DataTypes) => {
   };
 
   // Bearer AUTH: Validating a token
-  model.authenticateToken = async function (token) {
+  model.authenticateWithToken = async function (token) {
     try {
       const parsedToken = jwt.verify(token, SECRET);
-      const user = this.findOne({ username: parsedToken.username });
+      const user = await this.findOne({ username: parsedToken.username });
       if (user) { return user; }
       throw new Error('User Not Found');
     } catch (e) {

@@ -36,7 +36,7 @@ async function handleGetUsers(req, res, next) {
     res.status(200).json(list);
   } catch (e) {
     console.error(e);
-    next(e);
+   
   }
 }
 
